@@ -34,3 +34,12 @@ Route::post('/prestamos/create/prestamo', [PrestamosController::class, 'store'])
 Route::get('/prestamos/{idPrestamo}/edit', [PrestamosController::class, 'edit']);
 Route::put('/prestamos/{idPrestamo}/edit', [PrestamosController::class, 'update']);
 Route::delete('/prestamos/{idPrestamo}', [PrestamosController::class, 'destroy']);
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
