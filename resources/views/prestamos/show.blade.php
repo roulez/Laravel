@@ -10,12 +10,14 @@
             <p>Fecha Prestamo: {{$prestamo->fecha_prestamo}}</p>
             <p>Fecha devolucion: {{$prestamo->fecha_devolucion}}</p>
             <hr>
-            <a href="/prestamos/{{ $prestamo->id }}/edit" class="btn btn-outline-primary">Editar Prestamo</a>
-            <form action="" method="POST">
-                @method('Delete')
-                @csrf
-                <button class="btn btn-danger">Borrar Prestamo</button>
-            </form>
+            @if (Auth::user())
+                <a href="/prestamos/{{ $prestamo->id }}/edit" class="btn btn-outline-primary">Editar Prestamo</a>
+                <form action="" method="POST">
+                    @method('Delete')
+                    @csrf
+                    <button class="btn btn-danger">Borrar Prestamo</button>
+                </form>
+            @endif
         </div>
     </div>
 </div>

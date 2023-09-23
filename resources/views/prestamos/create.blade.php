@@ -26,11 +26,13 @@
                             <input type="number" id='fecha_devolucion' class="form-control" name="fecha_devolucion" placeholder="Fecha de devolucion del prestamo..." required>
                         </div>
                     </div>
-                    <div class="row mt-2">
-                        <div class="control-group col-12 text-center">
-                            <button class="btn bt-primary">Crear Prestamo</button>
+                    @if (Auth::user())
+                        <div class="row mt-2">
+                            <div class="control-group col-12 text-center">
+                                <button class="btn bt-primary">Crear Prestamo</button>
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 </form>
             </div>         
         </div>

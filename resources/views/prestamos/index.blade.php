@@ -8,10 +8,12 @@
                     <h1 class="display-one">Laravel</h1>
                     <p>Listado de prestamos</p>
                 </div>
-                <div class="col-4">
-                    <p>Registrar Prestamo</p>
-                    <a href="/prestamos/create/prestamo" class="btn btn-outline-primary btn-sm">Crear Prestamo</a>
-                </div>
+                @if (Auth::user())
+                    <div class="col-4">
+                        <p>Registrar Prestamo</p>
+                        <a href="/prestamos/create/prestamo" class="btn btn-outline-primary btn-sm">Crear Prestamo</a>
+                    </div>
+                @endif
             </div>
             @forelse ($prestamos as $prestamo)
                 <ul>
