@@ -1,0 +1,17 @@
+version: "3.1"
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: jmpc
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: CLOUD
+    ports:
+      - 5432:5432
